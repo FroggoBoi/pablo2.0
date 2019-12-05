@@ -1,0 +1,48 @@
+/*----------------------------------------------------------------------------*/
+/*                                                                            */
+/*    Module:       main.cpp                                                  */
+/*    Author:       mazubike                                                  */
+/*    Created:      Thu Dec 05 2019                                           */
+/*    Description:  V5 project                                                */
+/*                                                                            */
+/*----------------------------------------------------------------------------*/
+
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Motor1               motor         1               
+// Motor2               motor         2               
+// Motor3               motor         3               
+// Motor4               motor         4               
+// Controller1          controller                    
+// Motor5               motor         5               
+// Motor6               motor         6               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+
+#include "vex.h"
+
+using namespace vex;
+vex::rotationUnits rotations = vex::rotationUnits::rev;
+
+void spin1(){
+  Motor1.rotateFor(3,timeUnits::sec);
+}                 
+
+int main() {
+  // Initializing Robot Configuration. DO NOT REMOVE!
+  int howMany = 3;
+    
+  vexcodeInit();
+int speed = Controller1.Axis3.position();
+
+while(true){
+Motor1.spin(forward,Controller1.Axis3.value(),percent);
+Motor2.spin(forward,Controller1.Axis3.value(),percent);
+Motor3.spin(forward,Controller1.Axis3.value(),percent);
+Motor4.spin(forward,Controller1.Axis3.value(),percent);
+Motor5.spin(forward,Controller1.Axis2.value(),percent);
+Motor6.spin(forward,Controller1.Axis2.value(),percent);
+}
+
+//}
+}
